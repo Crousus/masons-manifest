@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.bg-image {
+  background-image: url('/mason.jpg');
+  background-size: 50vw;
+  background-position: top left;
+  margin-top: 10vh;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  /*background-color: rgba(255, 255, 255, 0.7); /* Adjust color and transparency as needed */
+  /*padding: 20px; /* Adjust padding as needed */
+  border-radius: 10px; /* Optional: for rounded corners */
+}
+
+.fade-effect {
+    background: linear-gradient(to bottom, transparent 0%, white 50%, white 75%, white 100%);
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

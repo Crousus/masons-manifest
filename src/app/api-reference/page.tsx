@@ -1,128 +1,131 @@
-import { PaperClipIcon } from '@heroicons/react/20/solid'
+'use client'
+import Navbar from "@/app/components/Navbar";
+import RequestApiKeyBox from "@/app/components/RequestApiKeyBox";
+import CodeBox from "@/app/components/CodeBox";
+import Footer from "@/app/components/Footer";
+
+const stats = [
+  { label: 'Founded', value: '2021' },
+  { label: 'Employees', value: '37' },
+  { label: 'Countries', value: '12' },
+  { label: 'Raised', value: '$25M' },
+]
 
 export default function Page() {
   return (
-    <>
-      <div className="px-4 sm:px-0">
-        <h3 className="text-base font-semibold leading-7 text-gray-900">Applicant Information</h3>
-        <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">Personal details and application.</p>
+    <div className="bg-white py-24 sm:py-32">
+      <Navbar />
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+          <div className="lg:mt-24 pr-8">
+          <CodeBox pythonCode={"import requests\n" +
+              "\n" +
+              "# API URL\n" +
+              "url = 'https://api.example.com/data'\n" +
+              "# Bearer token\n" +
+              "token = 'YOUR_BEARER_TOKEN'\n" +
+              "# Headers\n" +
+              "headers = {\n" +
+              "    'Authorization': f'Bearer {token}',\n" +
+              "}\n" +
+              "# Make GET request\n" +
+              "response = requests.get(url, headers=headers)\n" +
+              "# Check response\n" +
+              "if response.status_code == 200:\n" +
+              "    print('Success:', response.json())\n" +
+              "else:\n" +
+              "    print('Failed:', response.status_code, response.text)\n"}
+          javaCode={"import java.io.BufferedReader;\n" +
+              "import java.io.IOException;\n" +
+              "import java.io.InputStreamReader;\n" +
+              "import java.net.HttpURLConnection;\n" +
+              "import java.net.URL;\n" +
+              "\n" +
+              "public class ApiRequest {\n" +
+              "\n" +
+              "    public static void main(String[] args) {\n" +
+              "        String apiUrl = \"https://api.example.com/data\";\n" +
+              "        String bearerToken = \"YOUR_BEARER_TOKEN\";\n" +
+              "\n" +
+              "        try {\n" +
+              "            URL url = new URL(apiUrl);\n" +
+              "            HttpURLConnection connection = (HttpURLConnection) url.openConnection();\n" +
+              "\n" +
+              "            // Set the request method to GET\n" +
+              "            connection.setRequestMethod(\"GET\");\n" +
+              "\n" +
+              "            // Add Authorization header with Bearer token\n" +
+              "            connection.setRequestProperty(\"Authorization\", \"Bearer \" + bearerToken);\n" +
+              "\n" +
+              "            // Connect to the API\n" +
+              "            connection.connect();\n" +
+              "\n" +
+              "            // Check for successful response\n" +
+              "            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {\n" +
+              "                // Read response\n" +
+              "                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));\n" +
+              "                String line;\n" +
+              "                StringBuilder response = new StringBuilder();\n" +
+              "                while ((line = reader.readLine()) != null) {\n" +
+              "                    response.append(line);\n" +
+              "                }\n" +
+              "                reader.close();\n" +
+              "                // Output response\n" +
+              "                System.out.println(\"Success: \" + response.toString());\n" +
+              "            } else {\n" +
+              "                System.out.println(\"Failed: \" + connection.getResponseCode());\n" +
+              "            }\n" +
+              "        } catch (IOException e) {\n" +
+              "            e.printStackTrace();\n" +
+              "        }\n" +
+              "    }\n" +
+              "}\n"}/>
+            </div>
+          <div>
+            <div className="text-base leading-7 text-gray-700 lg:max-w-lg">
+              <p className="text-base font-semibold leading-7 text-indigo-600">API Grimoire</p>
+              <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Unleash the Stones of Wisdom: Your Gateway to Masonic Quotes! 🧱🔮
+              </h1>
+              <div className="max-w-xl">
+                <p className="mt-6">
+                  Are you on a quest to unearth the treasured wisdom of the mighty Mason? Look no further! But ah ah ah! 🚫🔮 Entry to the Masonic Wisdom API is not as simple as chanting a secret spell or decoding a hidden cipher. Nay, it involves securing a key... the renowned API token!
+                  </p>
+                <p className="mt-6">
+                  Venture to our cybernetic realm and scribe your particulars, and the sacred HSG insignia, upon our token request parchment (online form).
+                </p>
+                <RequestApiKeyBox />
+                  <p className="mt-6">
+                      Upon this singular delivery, no further electronic missives shall venture forth from our domain to thine inbox. Verily, your digital scroll address hath been ensconced within our annals as a mere hash, shrouded in an impenetrable veil of cryptography.
+
+Should thee desire a new sigil (token), merely extend thy request unto us once more. Lo! The old shall crumble, replaced post-haste with the new, ensuring the sanctity and fortitude of thine access to the treasured wisdom of ancient masons remains ever steadfast.
+                  </p>
+                <p className="mt-8">
+                  Inscribe the mighty masons’ wisdom into your codes, melding their sturdy philosophies with your digital marvels. May every byte and bit be imbued with the time-tested wisdom that has, for generations, turned mere concepts into concrete reality.
+
+Henceforth, go forth, dear developer, and let thine applications be not merely functional, but also beacons of ancient wisdom in our modern, digital world.
+
+In eternal camaraderie and with a chisel of wisdom.
+                </p>
+              </div>
+            </div>
+            <dl className="mt-10 grid grid-cols-2 gap-8 border-t border-gray-900/10 pt-10 sm:grid-cols-4">
+              {stats.map((stat, statIdx) => (
+                <div key={statIdx}>
+                  <dt className="text-sm font-semibold leading-6 text-gray-600">{stat.label}</dt>
+                  <dd className="mt-2 text-3xl font-bold leading-10 tracking-tight text-gray-900">{stat.value}</dd>
+                </div>
+              ))}
+            </dl>
+            <div className="mt-10 flex">
+              <a href="#" className="text-base font-semibold leading-7 text-indigo-600">
+                Learn more about our company <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="mt-6 border-t border-gray-100">
-        <dl className="divide-y divide-gray-100">
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-sm font-medium leading-6 text-gray-900">Full name</dt>
-            <dd className="mt-1 flex text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              <span className="flex-grow">Margot Foster</span>
-              <span className="ml-4 flex-shrink-0">
-                <button type="button" className="rounded-md bg-white font-medium text-indigo-600 hover:text-indigo-500">
-                  Update
-                </button>
-              </span>
-            </dd>
-          </div>
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-sm font-medium leading-6 text-gray-900">Application for</dt>
-            <dd className="mt-1 flex text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              <span className="flex-grow">Backend Developer</span>
-              <span className="ml-4 flex-shrink-0">
-                <button type="button" className="rounded-md bg-white font-medium text-indigo-600 hover:text-indigo-500">
-                  Update
-                </button>
-              </span>
-            </dd>
-          </div>
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-sm font-medium leading-6 text-gray-900">Email address</dt>
-            <dd className="mt-1 flex text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              <span className="flex-grow">margotfoster@example.com</span>
-              <span className="ml-4 flex-shrink-0">
-                <button type="button" className="rounded-md bg-white font-medium text-indigo-600 hover:text-indigo-500">
-                  Update
-                </button>
-              </span>
-            </dd>
-          </div>
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-sm font-medium leading-6 text-gray-900">Salary expectation</dt>
-            <dd className="mt-1 flex text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              <span className="flex-grow">$120,000</span>
-              <span className="ml-4 flex-shrink-0">
-                <button type="button" className="rounded-md bg-white font-medium text-indigo-600 hover:text-indigo-500">
-                  Update
-                </button>
-              </span>
-            </dd>
-          </div>
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-sm font-medium leading-6 text-gray-900">About</dt>
-            <dd className="mt-1 flex text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              <span className="flex-grow">
-                Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur
-                qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure
-                nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
-              </span>
-              <span className="ml-4 flex-shrink-0">
-                <button type="button" className="rounded-md bg-white font-medium text-indigo-600 hover:text-indigo-500">
-                  Update
-                </button>
-              </span>
-            </dd>
-          </div>
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-sm font-medium leading-6 text-gray-900">Attachments</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              <ul role="list" className="divide-y divide-gray-100 rounded-md border border-gray-200">
-                <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
-                  <div className="flex w-0 flex-1 items-center">
-                    <PaperClipIcon className="h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
-                    <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                      <span className="truncate font-medium">resume_back_end_developer.pdf</span>
-                      <span className="flex-shrink-0 text-gray-400">2.4mb</span>
-                    </div>
-                  </div>
-                  <div className="ml-4 flex flex-shrink-0 space-x-4">
-                    <button
-                      type="button"
-                      className="rounded-md bg-white font-medium text-indigo-600 hover:text-indigo-500"
-                    >
-                      Update
-                    </button>
-                    <span className="text-gray-200" aria-hidden="true">
-                      |
-                    </span>
-                    <button type="button" className="rounded-md bg-white font-medium text-gray-900 hover:text-gray-800">
-                      Remove
-                    </button>
-                  </div>
-                </li>
-                <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
-                  <div className="flex w-0 flex-1 items-center">
-                    <PaperClipIcon className="h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
-                    <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                      <span className="truncate font-medium">coverletter_back_end_developer.pdf</span>
-                      <span className="flex-shrink-0 text-gray-400">4.5mb</span>
-                    </div>
-                  </div>
-                  <div className="ml-4 flex flex-shrink-0 space-x-4">
-                    <button
-                      type="button"
-                      className="rounded-md bg-white font-medium text-indigo-600 hover:text-indigo-500"
-                    >
-                      Update
-                    </button>
-                    <span className="text-gray-200" aria-hidden="true">
-                      |
-                    </span>
-                    <button type="button" className="rounded-md bg-white font-medium text-gray-900 hover:text-gray-800">
-                      Remove
-                    </button>
-                  </div>
-                </li>
-              </ul>
-            </dd>
-          </div>
-        </dl>
-      </div>
-    </>
+      <Footer />
+    </div>
   )
 }

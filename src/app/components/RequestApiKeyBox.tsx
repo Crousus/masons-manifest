@@ -1,18 +1,18 @@
-import {useState} from "react";
+import React, {useState} from "react";
 
 export default function RequestApiKeyBox() {
   const [email, setEmail] = useState('');
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   const emailRegex = /^[a-zA-Z0-9._%+-]+@(student\.unisg\.ch|unisg\.ch)$/;
 
-  const handleEmailChange = (e) => {
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!emailRegex.test(e.target.value) || !email) {
+    if (!emailRegex.test(email) || !email) {
       // Handle invalid submission attempt here
       setError("Please use a valid @student.unisg.ch or @unisg.ch email address.")
     } else {

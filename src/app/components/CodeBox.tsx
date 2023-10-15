@@ -7,7 +7,12 @@ import dracula from 'react-syntax-highlighter/dist/esm/styles/hljs/dracula';
 SyntaxHighlighter.registerLanguage('python', python);
 SyntaxHighlighter.registerLanguage('java', java);
 
-export default function CodeBox({ pythonCode, javaCode }) {
+type CodeBoxProps = {
+  pythonCode: string;
+  javaCode: string;
+};
+
+export default function CodeBox({ pythonCode, javaCode }: CodeBoxProps) {
   const [language, setLanguage] = useState('python');
   const codeRef = useRef();
 

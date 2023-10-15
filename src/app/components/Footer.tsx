@@ -1,8 +1,14 @@
+type IconProps = {
+  className?: string;
+  [key: string]: any; // Add this line if you want to allow any other property
+};
+
+
 const navigation = [
   {
     name: 'GitHub',
     href: 'https://github.com/Crousus/masons-manifest',
-    icon: (props) => (
+    icon: (props: IconProps) => (
       <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
         <path
           fillRule="evenodd"

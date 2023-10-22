@@ -16,10 +16,6 @@
   border-radius: 10px; /* Optional: for rounded corners */
 }
 
-.fade-effect {
-    background: linear-gradient(to bottom, transparent 0%, white 50%, white 75%, white 100%);
-}
-
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
